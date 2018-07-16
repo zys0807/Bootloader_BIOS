@@ -134,7 +134,7 @@ static void
 print_default_help_message (char *config_entries)
 {
 	grub_u32_t	i;
-	char		buff[256];
+	char buff[256];
 
 	for(i=1;i<5;++i)
 	{
@@ -142,8 +142,10 @@ print_default_help_message (char *config_entries)
 		printf("%.*s",current_term->chars_per_line,0);
 	}
 
-	i = grub_sprintf (buff,"\n Use the %c and %c keys to highlight an entry.",
-		   (unsigned long)(unsigned char)DISP_UP, (unsigned long)(unsigned char)DISP_DOWN);
+	//i = grub_sprintf (buff,"\n Use the %c and %c keys to highlight an entry.",
+	//	   (unsigned long)(unsigned char)DISP_UP, (unsigned long)(unsigned char)DISP_DOWN);
+
+    i = grub_sprintf (buff,"");
 
       if (! auth && password_buf)
 	{
@@ -163,12 +165,16 @@ print_default_help_message (char *config_entries)
 	}
 	else
 	{
-		grub_strcpy(buff + i,(config_entries?(" Press ENTER or \'b\' to boot.\n"
-			" Press \'e\' to edit the commands before booting, or \'c\' for a command-line.")
-			:(" At a selected line, press \'e\' to edit, \'d\' to delete,"
-			" or \'O\'/\'o\' to open a new line before/after. When done, "
-			"press \'b\' to boot, \'c\' for a command-line, or ESC to go back to the main menu.")
-			));
+		//grub_strcpy(buff + i,(config_entries?(" Press ENTER or \'b\' to boot.\n"
+		//	" Press \'e\' to edit the commands before booting, or \'c\' for a command-line.")
+		//	:(" At a selected line, press \'e\' to edit, \'d\' to delete,"
+		//	" or \'O\'/\'o\' to open a new line before/after. When done, "
+		//	"press \'b\' to boot, \'c\' for a command-line, or ESC to go back to the main menu.")
+		//	));
+        grub_strcpy(buff + i,(config_entries?(" [ENTER] Boot [E] Modify [C] Command Line")
+                    :("     [O] Append [E] Modify [D] Delete \n"
+                    "       [B] Execute  [C] Command Line ")
+                    ));
 	}
 
 	print_help_message(buff);

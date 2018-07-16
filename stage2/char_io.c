@@ -576,21 +576,21 @@ void
 init_page (void)
 {
   //int i;
-  unsigned char tmp_buf[128];
+  //unsigned char tmp_buf[128];
   //unsigned char ch = ' ';
 
   cls ();
 
-  if (current_term->setcolorstate)
-      current_term->setcolorstate (COLOR_STATE_HEADING);
+  //if (current_term->setcolorstate)
+  //    current_term->setcolorstate (COLOR_STATE_HEADING);
 
-  grub_sprintf ((char *)tmp_buf,
-		" GRUB4DOS " GRUB4DOS_VERSION ", Mem: %dK/%dM/%ldM, End: %X",
-		(unsigned long)saved_mem_lower,
-		(unsigned long)(saved_mem_upper >> 10),
-		(unsigned long long)(saved_mem_higher >> 10),
-		(unsigned int)(((char *) init_free_mem_start) + 1024 + 256 * sizeof (char *) + config_len));
-	grub_printf("%-*.*s",current_term->chars_per_line,current_term->chars_per_line,tmp_buf);
+  //grub_sprintf ((char *)tmp_buf,
+  //	" GRUB4DOS " GRUB4DOS_VERSION ", Mem: %dK/%dM/%ldM, End: %X",
+  //	(unsigned long)saved_mem_lower,
+  //	(unsigned long)(saved_mem_upper >> 10),
+  //	(unsigned long long)(saved_mem_higher >> 10),
+  //	(unsigned int)(((char *) init_free_mem_start) + 1024 + 256 * sizeof (char *) + config_len));
+  //grub_printf("%-*.*s",current_term->chars_per_line,current_term->chars_per_line,tmp_buf);
   if (current_term->setcolorstate)
       current_term->setcolorstate (COLOR_STATE_STANDARD);
 }
