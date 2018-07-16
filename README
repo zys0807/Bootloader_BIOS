@@ -1,3 +1,7 @@
+Developer : c0ld
+
+A modified grub4dos(chenall) project, BIOS based bootloader.
+
 This is GNU GRUB, the GRand Unified Bootloader.  GRUB is intended to
 provide important bootloader features that are missing from typical
 personal computer BIOSes:
